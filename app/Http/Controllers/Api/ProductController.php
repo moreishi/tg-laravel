@@ -79,6 +79,16 @@ class ProductController extends BaseController
         return $this->productRepository->findAllCategories();
     }
 
+    public function products_category(string $slug)
+    {
+        return $this->productRepository->findProductsByCategory($slug);
+    }
+
+    public function products_query(Request $request)
+    {
+        return $this->productRepository->findProductsByQuery($request->query->all());
+    }
+
     public function category_list()
     {
         return $this->productRepository->findAllCategoryList();
